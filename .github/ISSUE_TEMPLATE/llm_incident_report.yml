@@ -1,0 +1,40 @@
+name: "🤖 LLM Incident Report"
+description: Report an incident caused by a task delegated to an LLM
+title: "[INCIDENT] <Short summary>"
+labels: [incident, llm]
+body:
+  - type: input
+    id: overview
+    attributes:
+      label: Incident Overview
+      placeholder: e.g., The LLM generated and executed a destructive SQL query
+    validations:
+      required: true
+
+  - type: textarea
+    id: delegated_task
+    attributes:
+      label: Delegated Task to LLM
+      description: What task or decision was handed over to the LLM?
+      placeholder: e.g., Generate and execute SQL based on user input
+    validations:
+      required: true
+
+  - type: textarea
+    id: root_cause
+    attributes:
+      label: Root Cause
+      description: Describe the root cause of the incident
+      placeholder: e.g., Lack of validation and unsafe execution of AI-generated queries
+    validations:
+      required: true
+
+  - type: textarea
+    id: undetected_reason
+    attributes:
+      label: Why It Was Not Detected Earlier
+      description: Why did the issue go unnoticed until now?
+      placeholder: e.g., No alerting on automatic execution logs
+    validations:
+      required: false
+
